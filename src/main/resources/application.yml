@@ -3,9 +3,11 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/academia?useTimezone=true&serverTimezone=UTC
     username: root
-    password: rootpassword
+    password: 2502
 
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
+    properties:
+      hibernate.format_sql: true
