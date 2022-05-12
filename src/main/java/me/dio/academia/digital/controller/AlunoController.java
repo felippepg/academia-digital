@@ -17,8 +17,8 @@ public class AlunoController {
     private AlunoService service;
 
     @GetMapping
-    public List<Aluno> getAlunos() {
-        return service.getAll();
+    public List<Aluno> getAllAlunos(@RequestParam(value = "dataDeNascimento", required = false) String dataDeNascimento) {
+        return service.getAll(dataDeNascimento);
     }
 
     @GetMapping("/avaliacoes/{id}")
