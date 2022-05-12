@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Aluno {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +37,7 @@ public class Aluno {
 
   private LocalDate dataDeNascimento;
   @OneToMany(mappedBy = "aluno", fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<AvaliacaoFisica> avaliacoes = new ArrayList<>();
 
 }
